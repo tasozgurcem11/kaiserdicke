@@ -1,0 +1,1089 @@
+<!doctype html>
+{% load webp_converter %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta name=”robots” content="index, follow">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <meta name="description" content="DIE RENAISSANCE DER WUPPERTALER TEXTILFABRIK">
+    <title>Kaiser & Dicke </title>
+
+    <link rel="shortcut icon" href="{% static_webp 'images/kd/mini-logo.png' %}"/>
+
+    <link href="{% static 'css/style.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/menu-styles.min.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ajax/libs/Swiper/4.2.2/css/swiper.min.css' %}">
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.min.css' %}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- bootstrap -->
+    <link href="{% static 'bootstrap/3.3.7/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static "css/magic.min.css" %}" type="text/css">
+
+    <link rel="stylesheet" href="{% static "css/subscribe_form/style.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "fonts/material-design-iconic-font/css/material-design-iconic-font.min.css" %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'subscribe_form_2/vendor/animate/animate.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'subscribe_form_2/vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'subscribe_form_2/vendor/animsition/css/animsition.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'subscribe_form_2/vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'subscribe_form_2/vendor/daterangepicker/daterangepicker.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'subscribe_form_2/css/util.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'subscribe_form_2/css/main.min.css' %}">
+    
+</head>
+
+<body class="nopadding">
+    
+    <div class="sticky--direct-contact sticky--closed" onclick="location.href='https://www.denkmalgeschütztelofts.de'">
+        
+        <img src="{% static_webp 'images/industry-logo.png' %}" style="height: 30px; width: 32px; border-radius: 5px; margin-top: 35px; margin-left: 10px;">
+        <div class="vsbl-txt">
+            <span style="font-size: 17px; font-family: 'Fractul', sans-serif; color: #000; visibility: visible;">denkmalgeschütztelofts.de</span>
+        </div>   
+    </div>
+
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success'%}
+            <script>M.toast({html: "{{message}}", classes: 'green rounded', displayLength:3000});</script>
+        {% elif message.tags == 'info'%}
+            <script>M.toast({html: "{{message}}", classes: 'blue rounded', displayLength:2000});</script>
+        {% elif message.tags == 'warning'%}
+            <script>M.toast({html: "{{message}}", classes: 'orange rounded', displayLength:10000});</script>
+        {% elif message.tags == 'error'%}
+            <script>M.toast({html: "{{message}}", classes: 'red rounded', displayLength:10000});</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+<div class="container-fluid nopadding" style="background: #1c1a1b;">
+    <header id="header" class="headerneww">
+        <div class="hidden-xs hidden-sm">
+            <div class="topbarnew container-fluid hidden-xs visible-sm visible-md visible-lg">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="col-xs-4 col-md-4 option pull-left">
+                            <a href="#">DIE RENAISSANCE DER WUPPERTALER TEXTILFABRIK.</a>
+                        </div>
+                        <div class="col-xs-4 col-md-4 option pull-right text-right">
+                            <a href="#">DER BEGINN EINER ZWEITEN GRÜNDERZEIT.</a>
+                        </div>
+                        <div class="col-xs-8 col-md-8 pull-right">
+                            <ul class="nav navbar-nav mr-auto">
+                                {#                                <li><a href="#" target="_blank">News</a></li>#}
+                                {#                                <li class="active"><a href="#">Our Brands</a></li>#}
+                                {#                                <li class="active"><a#}
+                                {#                                        href="#"#}
+                                {#                                        target="_blank">All Products</a></li>#}
+                                {#                                <li class=""><a#}
+                                {#                                        href="#"#}
+                                {#                                        target="_blank">Foundation</a></li>#}
+                                {#                                <li class=""><a href="#">Town</a></li>#}
+                                {#                                <li class=""><a href="#">Videos</a></li>#}
+                                {#                                <li class=""><a href="#">Careers</a></li>#}
+                                {#                                <li class=""><a href="#">Investors</a></li>#}
+                                {#                                <li class=""><a href="{% static '#' %}">Press</a></li>#}
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar navbar-dark newmenu">
+                <div class="container-fluid">
+                    <div class="navbar-header col-xs-4 col-md-4">
+                        <a class="navbar-brand logo" href="#"><img
+                                src="{% static_webp 'images/kd/kd-logo-2.png' %}"
+                                class="img-responsive"></a>
+                    </div>
+                    <div class="col-xs-4 col-md-4 option pull-right text-right">
+                        <button class="btn-epic" onclick="window.location.href='https://xn--denkmalgeschtztelofts-kic.de/angebot-anfordern/kaiser-und-dicke/'" target="blank">
+                            <div>
+                                <span>
+                                    ANGEBOT ANFORDERN
+                                </span>
+                                <span>
+                                    ANGEBOT ANFORDERN
+                                </span>
+                            </div>
+                        </button>
+                    </div>
+                    
+                    <div class="col-xs-8 col-md-8 menupric">
+                        <div class="collapse navbar-collapse pull-right" id="myNavbar">
+
+                            <ul class="nav navbar-nav mr-auto menubrandss">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="hidden-xs hidden-md hidden-lg costumtablet">
+            <div id="submenutablet" class="col-xs-12 submenunew collapse">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class=""><a href="#">Our Group</a></li>
+                    <li><a href="#" target="_blank">News</a></li>
+                    <li class="active"><a href="#">Our Brands</a></li>
+                    <li class="active"><a
+                            href="#"
+                            target="_blank">All Products</a></li>
+                    <li class=""><a
+                            href="#"
+                            target="_blank">Foundation</a></li>
+                    <li class=""><a href="#">Town</a></li>
+                    <li class=""><a href="#">Videos</a></li>
+                    <li class=""><a href="#">Careers</a></li>
+                    <li class=""><a href="#">Investors</a></li>
+                    <li class=""><a href="{% static '#' %}">Press</a></li>
+                </ul>
+            </div>
+            <div class="topbarnew container-fluid hidden-xs visible-sm visible-md visible-lg">
+                <div class="row">
+                    <div class="col-xs-12" style="z-index: 199999;">
+                        <div class="col-xs-11 option pull-left">
+                            <a href="#">CONTACT US Mon-Sat: 7:30a.m - 12:00a.m GMT+1 </a>
+                        </div>
+                        <div class="col-xs-1 buttontablet">
+                            <button type="button" id="buttonsubm" data-toggle="collapse"
+                                    data-target="#submenutablet">
+                                <i class="fa fa-arrow-circle-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-dark newmenu">
+                <div class="container-fluid">
+                    <div class="navbar-header col-xs-3">
+                        <a class="navbar-brand logo" href="#"><img
+                                src="{% static_webp 'images/kd/kd-logo-2.png' %}"
+                                class="img-responsive"></a>
+                    </div>
+                    <div class="col-xs-9 menupric">
+                        <div class="collapse navbar-collapse pull-right" id="myNavbar">
+
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="menumobile hidden-sm hidden-md hidden-lg">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                              onclick="window.location.href='https://xn--denkmalgeschtztelofts-kic.de/angebot-anfordern/kaiser-und-dicke/'">
+                            <a style="color: #fff; font-size: 11px;">
+                                ANGEBOT ANFORDERN
+                            </a>
+                            
+                        </button>
+                        
+                        <a class="navbar-brand logo" href="#"><img
+                                src="{% static_webp 'images/kd/kd-logo-2.png' %}"
+                                class="img-responsive"></a>
+                    </div>
+                    {#                    <div class="collapse navbar-collapse" id="menumob">#}
+                    {#                        <ul class="nav navbar-nav mobilemenu">#}
+                    {#                            <li class=""><a href="#">Our Group</a></li>#}
+                    {#                            <li><a href="#" target="_blank">News</a></li>#}
+                    {#                            <li class="active"><a href="#">Our Brands</a></li>#}
+                    {#                            <li class="active"><a#}
+                    {#                                    href="#"#}
+                    {#                                    target="_blank">All Products</a></li>#}
+                    {#                            <li class=""><a#}
+                    {#                                    href="#"#}
+                    {#                                    target="_blank">Foundation</a></li>#}
+                    {#                            <li class=""><a href="#">Town</a></li>#}
+                    {#                            <li class=""><a href="#">TV</a></li>#}
+                    {#                            <li class=""><a href="#">Careers</a></li>#}
+                    {#                            <li class=""><a href="#">Investors</a></li>#}
+                    {#                            <li class="" style="border-bottom: 1px solid #e2e2e2;"><a#}
+                    {#                                    href="{% static '#' %}">Press</a></li>#}
+                    {#                        </ul>#}
+                    {#                    </div>#}
+                </div>
+            </nav>
+        </div>
+    </header>
+</div>
+
+<div class="container-fluid nopadding">
+
+    <div class="main">
+
+        <div class="container-fluid nopadding">
+            <div class="col-xs-12 nopadding imgluxbrand">
+                <img src="{% static_webp 'images/kd/KDB_INNEN_240x288_200710-21.jpg' %}"
+                     class="img-responsive pull-left hidden-xs hidden-sm">
+                <div class="content-luxbrand">
+                    <div class="colxs-12 col-md-9" style="left: -119px;">
+                        <div class="col-xs-12 centerblocks">
+                            <div class="intro-txt" data-aos="zoom-in">
+                                <h2>
+                                    HERZLICH
+                                    <br><br>
+                                    WILKOMMEN BEI
+                                    <br><br>
+                                    <span style="color: #000;">KAISER & DICKE.</span>
+                                
+                                </h2>
+                                <br><br><br>
+                                <div class="intro-txt-content">
+                                    Lesen Sie jetzt, wie aus der bewegten
+                                    <br>
+                                    Geschichte der altehrwürdigen
+                                    <br>
+                                    Textilfabrik in Wuppertal eine Vision
+                                    <br>
+                                    für die Zukunft des Viertels, der Stadt
+                                    <br>
+                                    und der Region entsteht.
+
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        {#                        <div class="col-xs-12 col-sm-7 col-md-6">#}
+                        {#                            <p style="font-size: 24px; background-color: white; color: black; padding: 10px">#}
+                        {#                                <b style="color: #C2A764">In Zukunft mit#}
+                        {#                                    Kaiser & Dicke</b> ein fortschrittliches, urbanes Quartier,#}
+                        {#                                das auf ganz zeitgemäße Weise#}
+                        {#                                einen Strukturwandel forciert,#}
+                        {#                                der Erhaltenswertes bewahrt#}
+                        {#                                und visionär Neues kreiert.</p>#}
+                        {#                            <img style="margin-top: -10px" src="{% static "images/kd/slogan.png" %}"#}
+                        {#                                 alt="Slogan">#}
+                        {#                        </div>#}
+                    </div>
+                </div>
+                <a class="arrowdown" id="scroll"><span></span></a>
+            </div>
+
+            <div class="col-xs-12 p-brand-bl v2 nopadding page-section">
+                <a href="#">
+                    <div class="bg-op"></div>
+                    <div class="img-brand" data-aos="zoom-in"><img
+                            src="{% static_webp 'images/kd/kd-logo-2.png' %}"
+                            class="img-responsive"></div>
+                </a>
+            </div>
+            <div class="phone-call">
+                <a href="tel:080016803398">
+                    <img src="{% static_webp "images/phone-logo-26.png" %}" alt="Jetzt anrufen" title="Jetzt anrufen">
+                </a>
+            </div>
+            <div class="row nomarg">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-sm-6 middle-content-txt-left"  data-aos="zoom-in">
+                            <h1>
+                                <span style="color: #C2A764;">Der Beginn einer
+                                langen Geschichte:</span>
+                                <br>
+                                In Wuppertal-Barmen wurde am 02. Juni 1869 die Kaiser & Dicke Textilfabrik gegründet.
+                                
+                            </h1>
+                            <br>
+                            <p>
+                                Schon bald verließen allerlei gewebte Bänder höchster Qualität die für ihre Zeit hochmoderne Textilfabrik.
+                                Schnürriemen und Gummilitzen, später auch Borden, Kordeln und Hutbänder wurden produziert und für ihre hervorragende Qualität im Jahr 1900 mit der Goldmedaille der Weltausstellung ausgezeichnet.
+                            </p>
+                        </div>
+                        <div class="col-sm-6 middle-content-txt-right" data-aos="zoom-in">
+                            <h1 id="middle-content-txt-right-h1">
+                                Aber alles hat ein Ende:
+                                <br>
+                                2018 gingen die Lichter nach rund 150 Jahren aus.
+                            </h1>
+                            <br>
+                            <h1 id="middle-content-txt-right-h1">
+                                Erst einmal.
+                            </h1>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
+                    <div class="brandsection">
+
+                        <!-- <div class="swiper-container blslide">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="{% static_webp 'images/kd/slider1.png' %}"
+                                         class="img-responsive">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="{% static_webp 'images/kd/slider2.png' %}"
+                                         class="img-responsive">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="{% static_webp 'images/kd/slider3.png' %}"
+                                         class="img-responsive">
+                                </div>
+                            </div> -->
+                            <!-- Add Pagination -->
+                            <!-- <div class="swiper-pagination newstyle"></div>
+                        </div> -->
+
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Mu_lGmyYUHY?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 p-brand-dl v2 nopadding page-section">
+                <a href="#">
+                    <div class="bg-op"></div>
+                    {#                    <div class="img-brand"><img#}
+                    {#                            src="{% static_webp 'images/brands/logos-new/delightfull.png' %}"#}
+                    {#                            class="img-responsive"></div>#}
+                </a>
+            </div>
+
+            <div class="row nomarg">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="brandsection">
+
+                        <div class="swiper-container lxslide" data-aos="zoom-in">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    
+                                    <div class="row">
+                                        <div class="col-sm-6 middle-content-txt-left">
+                                            <h1>
+                                                <span style="color: #C2A764;">
+                                                    Arbeiten.
+                                                    <br>
+                                                    Leben.
+                                                    <br>
+                                                    Begegnen.
+                                                </span>
+                                            </h1>
+                                            <br>
+                                            <h1>
+                                                Auf fast 9000 qm Fläche wird die renaissance Immobilien und Beteiligungen AG eine Vision um-setzen, die einem neuen Zeitalter den Raum bietet:
+                                            </h1>
+                                        </div>
+                                        <div class="col-sm-6 middle-content-txt-right-2">
+                                            <h1 id="middle-content-txt-right-h1">
+                                                Exklusive Lofts,
+                                                <br>
+                                                Wohnateliers für Künstler,
+                                                <br>
+                                                Co-Learning-Büros für Studentinnen und Stundenten und Büros für Start-ups. 
+                                                <br><br>
+                                                Kern ist ein Nachbarschaftscafé als Treffpunkt für Bewohner, Beschäftigte und Nachbarn.
+                
+                
+                
+                                               
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="arbeiten-bg">
+                                        <div class="arbeiten-slide">
+                                            Arbeiten.
+                                            <br>
+                                            Leben.
+                                            <br>
+                                            Begegnen.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination newstyle"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-sm-6 middle-content-txt-left-2" data-aos="zoom-in">
+                            <span style="color: #C2A764; text-decoration: underline;">Die Zeiten ändern sich.</span>
+                            <p>
+                                Wenn Homeoffice zur Normalität wird, verändern sich auch die Freizeitgewohnheiten. Wer morgens und abends nicht mehr je eine Stunde im Stau steht, hat auch deutlich mehr Freizeit. Aber: Wer im Homeoffice arbeitet, möchte auch nicht die ganze Zeit allein sein, sondern auch weiterhin Kontakte pflegen – es müssen ja nicht die Kollegen sein. Bei Kaiser & Dicke wird ein großes Café für alle Homeworker, die Freischaffenden der Start-ups und die Kreativen aus den Ateliers seine Türen öffnen. Und natürlich auch für die Nachbarn barn im Viertel, sodass man nicht nur zusammen arbeitet, sondern auch zusammen lebt.
+                                <br><br>
+                                Bei Kaiser & Dicke wird sie nun realisiert, die Idee vom »Wohnen und Arbeiten«. Auf den fast 9000 qm Fläche will die renaissance Immobilien und Beteiligungen AG diese Vision umsetzen, denn das fehlt hier im Quartier. Spezielle Zeitzeugen des Industriedesigns bleiben bewusst erhalten.
+                            </p>
+
+                        </div>
+                        <div class="col-sm-6 middle-content-txt-left-2" data-aos="zoom-in">
+                            <span style="color: #C2A764; text-decoration: underline;">Aus Zeitlosigkeit wird Nachhaltigkeit.</span>
+                            <p>
+                                <strong>Wenn die Geschichte von Kaiser & Dicke nach 150 Jahren ihren zweiten Frühling erlebt, wird der neue Lebensraum auch ein Musterbeispiel für Nachhaltigkeit sein.</strong>Die Ökobilanz eines Gebäudes, das schon weit mehr als ein Jahrhundert existiert und modernisiert wird, ist nahezu unschlagbar – denn: je länger die Nutzung, desto nachhaltiger. Alles, was nicht neu erbaut wird, spart mehr Ressourcen ein als jeder noch so moderne Neubau. Gerade Zement zum Beispiel ist in der Herstellung extrem klimaschädlich: Bei der Herstellung der weltweit runde vier Milliarden Tonnen Zement im Jahr entsteht enorm viel Kohlendioxid – 2,8 Milliarden Tonnen, was rund acht Prozent der globalen Treibhausgasemissionen ausmacht. Und das ist nur ein Teil des Emissionsproblems: Für die Zementherstellung werden hohe Temperaturen benötigt, die mit der Verfeuerung wertvoller fossiler Brennstoffe erzeugt werden. Damit verdoppelt sich die klimaschädliche Wirkung noch.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 p-brand-bb v2 nopadding page-section" style="background-image: url('{% static_webp "images/kd/KDB_INNEN_240x288_200710-51.jpg" %}');">
+                <a href="#">
+                    <div class="bg-op"></div>
+                    {#                    <div class="img-brand"><img#}
+                    {#                            src="{% static_webp 'images/brands/logos-new/brabbu.png' %}"#}
+                    {#                            class="img-responsive"></div>#}
+                </a>
+            </div>
+
+            <div class="row nomarg">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10" data-aos="zoom-in">
+                        <p id="oberbür">
+                            <br><br>
+                            Dass diese Fabrik nun revitalisiert wird, kann uns in Wuppertal
+                            natürlich freuen – ein prägendes Gebäudeensemble wird erhalten und
+                            einer neuen, interessanten Nutzung zugeführt.</p>
+                        <p id="oberbür" style="color: #c0a16b;">
+                            Andreas Mucke <br>
+                            <span style="color: black;font-size: 16px">ehemaliger Oberbürgermeister, Wuppertal</span>
+                             </p>
+                    </div>
+                    <div class="col-md-1"></div>
+
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 nopadding">
+                    <div class="brandsection">
+
+                        {#                        <div class="swiper-container bbslide">#}
+                        <div class="swiper-wrapper" data-aos="zoom-in">
+                            <div class="swiper-slide">
+                                <img id="oberbür-img" src="{% static_webp 'images/kd/image-001.png' %}"
+                                     class="img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 p-brand-eh v2 nopadding page-section" style="background-image: url('{% static_webp "images/kd/bg_interior2.png" %}');">
+                <a href="#">
+                    <div class="bg-op"></div>
+                    {#                    <div class="img-brand"><img#}
+                    {#                            src="{% static_webp 'images/brands/logos-new/essential-home.png' %}"#}
+                    {#                            class="img-responsive"></div>#}
+                </a>
+            </div>
+
+            <div class="row nomarg">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-sm-12 das-ensemble-txt" data-aos="zoom-in">
+                            <h1>
+                                <p>
+                                    DAS
+                                </p>
+                                
+                                <p>
+                                    ENSEMBLE
+                                </p>
+                                
+                                <p style="color: #C2A764;">
+                                    KAISER & DICKE
+                                </p>
+                            </h1>
+
+                            <div class="das-ensemble-txt xxx" data-aos="zoom-in">
+                                EIN DENKMAL, WIE ES IM BUCHE STEHT.
+                            </div>
+                            <div class="das-ensemble-txt yyy" data-aos="zoom-in">
+                                <strong>Am 5. August 2019 war es soweit:</strong>die geschichtsträchtigen Gebaüde der Kaiser & Dicke Textilfabrik wurden offiziell als Denkmal anerkannt und mit der Nummer in die Denkmalliste der Stadt Wuppertal eingetragen. Damit genießen die alten Mauern nun den besonderen Denkmalschutz. Ein weiterer Meilenstein in der mehr als 150-jährigen Geschichte der traditionsreichen Fabrik in Barmen.
+                            </div>
+                        </div>
+                        <!-- <div class="col-sm-12 middle-content-txt-left">
+                            <h1>
+                                ES IST AMTLICH:
+                                <br>
+                                <span style="color: #C2A764;">KAISER & DICKE IST EIN DENKMAL.</span> 
+                                <br>
+                                Die Gebäude in Barmen erfüllen die Denkmaleigenschaften im Sinne des § 2 DschG NRW in der Gesamtheit ihrer Bauten.
+                                <br>
+                                <span style="color: #C2A764;">Eine große Herausforderung und eine schöne Aufgabe für die Zukunft.</span>
+                            </h1>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-sm-12 das-ensemble-txt" style="text-align: left;" data-aos="zoom-in">
+                            <h1>
+                                ES IST AMTLICH:
+                                <br>
+                                <span style="color: #C2A764;">KAISER & DICKE IST EIN DENKMAL.</span> 
+                                <br><br>
+                                Die Gebäude in Barmen erfüllen die Denkmaleigenschaften im Sinne des § 2 DschG NRW in der Gesamtheit ihrer Bauten.
+                                <br><br>
+                                <span style="color: #C2A764;">Eine große Herausforderung und eine schöne Aufgabe für die Zukunft.</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 p-brand-lx v2 nopadding page-section" style="background-image: url('{% static_webp "images/kd/bg_building2.png" %}');">
+                <a href="#">
+                    <div class="bg-op"></div>
+                    {#                    <div class="img-brand"><img#}
+                    {#                            src="{% static_webp 'images/brands/logos-new/luxxu.png' %}"#}
+                    {#                            class="img-responsive"></div>#}
+                </a>
+            </div>
+
+            <div class="row nomarg">
+                <div class="col-xs-12 col-sm-12 col-md-6 nopadding hidden-lg">
+                    <div class="brandsection">
+
+                        <div class="swiper-container lxslide" data-aos="zoom-in">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="{% static_webp 'images/kd/slider4.png' %}"
+                                         class="img-responsive">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="{% static_webp 'images/kd/slider5.png' %}"
+                                         class="img-responsive">
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination newstyle"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-sm-12" data-aos="zoom-in">
+                            <img src="{% static_webp 'images/kd/image--068.jpg' %}" class="img-responsive" style="margin: 20px auto; display: block;">
+                        </div>
+                        <div class="col-sm-12 ahmetovic" data-aos="zoom-in">
+                            <p>
+                                <strong>Die renaissance Immobilien & Beteiligungen AG restauriert und vermarktet bevorzugt Objekte aus der Zeit um das 19. Jahrhundert.</strong> Bei der Sanierung greift die Gesellschaft auf die Erfahrung von über 1000 Wohnungen zurück-vielfach denkmalgeschützt.
+                            </p>
+                            
+                            <p>
+                                <strong>Der Firmenname renaissance AG ist da bei kein Zufall,</strong> sondern Reminiszenz an die Überzeugung, dass auch im 21. Jahrhundert die Immobilie eine der besten Vermögensanlagen ist und selbst in volatilen Zeiten in der Regel wertstabil bleibt. 
+                            </p>
+                            
+                            <p>
+                                Die renaissance AG saniert ihre Objekte nach höchsten Standart und gibt mit der wertigen Fassaden-Restaurierung  den Häusern wieder ein ganz eigenes Gesicht. Alle objekte werden mit Liebe zum Detail und Verständnis für zeitgenössische Architektur behutsam renoviert und restauriert.
+                            </p>
+                            
+                            <p>
+                                Diese Firmenphilosophie schafft gleichermaßen rentable Anlagemöglichkeiten für Investoren als auch zeitlos schönen historisch wertvollen Wohnraum für Mieter.
+                            </p>
+                             
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 nopadding hidden-sm hidden-xs">
+                    <div class="brandsection">
+
+                        <div class="swiper-container lxslide" data-aos="zoom-in">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="{% static_webp 'images/kd/slider4.png' %}"
+                                         class="img-responsive">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="{% static_webp 'images/kd/slider5.png' %}"
+                                         class="img-responsive">
+                                </div>
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination newstyle"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 p-brand-mv v2 nopadding page-section" style="background-image: url('{% static_webp "images/kd/bg_building3.png" %}');">
+                <a href="#">
+                    <div class="bg-op"></div>
+                    {#                    <div class="img-brand"><img#}
+                    {#                            src="{% static_webp 'images/brands/logos-new/maison-valentina.png' %}"#}
+                    {#                            class="img-responsive"></div>#}
+                </a>
+            </div>
+
+            <div class="row nomarg">
+                <div class="container-contact100">
+                    <div class="wrap-contact100">
+                        <form id="form1" class="contact100-form validate-form" method="POST">
+                            {% csrf_token %}
+            
+                            <label class="label-input100" for="first-name">Vollständiger Name *</label>
+                            <div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Vorname ist erforderlich">
+                                <input id="first_name" class="input100" type="text" name="first_name" placeholder="Vorname"
+                                {% if form.is_bound %}value="{{ form.first_name.value }}"{% endif %} required>
+                                <span class="focus-input100"></span>
+                            </div>
+                            <div class="wrap-input100 rs2-wrap-input100 validate-input" data-validate="Nachname ist erforderlich">
+                                <input id="last_name" class="input100" type="text" name="last_name" placeholder="Nachname"
+                                {% if form.is_bound %}value="{{ form.last_name.value }}"{% endif %} required>
+                                <span class="focus-input100"></span>
+                            </div>
+            
+                            <label class="label-input100" for="email">IHRE E-MAIL EINGEBEN *</label>
+                            <div class="wrap-input100 validate-input" data-validate = "Gültige E-Mail ist erforderlich: ex@abc.xyz">
+                                <input id="email" class="input100" type="email" name="email" placeholder="E-Mail Adresse"
+                                {% if form.is_bound %}value="{{ form.email.value }}"{% endif %} required>
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <label class="label-input100" for="telephonenummer">IHRE TELEFONNUMMER</label>
+                            <div class="wrap-input100 validate-input">
+                                <input id="telephonenummer" class="input100" type="tel" name="telephonenummer" placeholder="Telefonnummer"
+                                {% if form.is_bound %}value="{{ form.telephonenummer.value }}"{% endif %}>
+                                <span class="focus-input100"></span>
+                            </div>
+            
+                            
+            
+                            <div class="container-contact100-form-btn">
+                                <button class="contact100-form-btn" type="submit">
+                                    PDF herunterladen
+                                </button>
+                            </div>
+                        </form>
+            
+                        <div class="contact100-more" style="background-image: url('{% static_webp "images/kd/pdf_img.png" %}');">
+                        </div>
+                    </div>
+                </div>
+                <div id="dropDownSelect1"></div>
+               
+            </div>
+        </div>
+
+        <footer class="footer-big">
+            <div class="row nomarg" style="background: #000;">
+                <div class="col-sm-4 col-md-4" style="height: 15px;">
+                    <a href="/impressum" class="footer-lnks">
+                        IMPRESSUM
+                    </a>
+                    <a href="/impressum" class="response-footer">
+                        IMPRESSUM
+                    </a>
+                    <a href="/datenschutz" class="response-footer" style="right: 3%;">
+                        DATENSCHUTZ
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <img src="{% static_webp 'images/kd/kd-logo-2.png' %}"
+                         class="img-responsive center-block w-25" alt="Footer Logo">
+                    <p style="color: white">KAISER & DICKE 2020.ALLE RECHTE VORBEHALTEN</p>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <a href="/datenschutz" class="footer-lnks">
+                        DATENSCHUTZ
+                    </a>
+                </div>
+            </div>
+            {#            </div>#}
+        </footer>
+    </div>
+
+</div>
+</body>
+
+<script src="{% static 'subscribe_form_2/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+{#<script src="{% static 'js/jquery-1.11.3.min.js' %}" type="text/javascript"></script>#}
+<script src="{% static 'bootstrap/3.3.7/js/bootstrap.min.js' %}"></script>
+{#<script src="{% static 'js/parsley.js' %}"></script>#}
+
+
+{#<script src="{% static 'js/jssor.slider-27.1.0.min.js' %}" type="text/javascript"></script>#}
+
+{#<script src="{% static 'js/isotope-docs.min.js' %}"></script>#}
+<script src="{% static 'ajax/libs/jquery.isotope/3.0.5/isotope.pkgd.min.js' %}"></script>
+
+<script src="{% static 'js/jquery.sticky-kit.min.js' %}"></script>
+
+<script src="{% static 'ajax/libs/Swiper/4.2.2/js/swiper.min.js' %}"></script>
+
+<script src="{% static 'ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js' %}"></script>
+
+{#<script src="{% static 'js/megaTracker.js' %}"></script>#}
+
+{# EMAIL VALIDATION USING JAVASCRIPT #}
+<script>
+    function validateEmail(email) {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    function validate() {
+        const email = $("#email").val();
+        return validateEmail(email);
+    }
+
+    if ($("#submit").on("click", validate)) {
+        $("#SubscribeToPDF").on('submit', function (event) {
+            alert("PDF has been successfully sent to your email!");
+        })
+    }
+</script>
+
+<script>
+    jQuery(document).ready(function () {
+
+        jQuery('#submenutablet').on('show.bs.collapse', function () {
+            jQuery('#buttonsubm').attr('style', 'transform:rotate(180deg)');
+        });
+        jQuery('#submenutablet').on('hide.bs.collapse', function () {
+            jQuery('#buttonsubm').attr('style', 'transform:rotate(0deg)');
+        });
+
+    });
+
+</script>
+
+
+<script>
+
+
+    jQuery(window).load(function () {
+
+        jQuery("#scroll").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-bl").offset().top - 110
+                },
+                'slow');
+        });
+
+        //go to BL
+        jQuery(".bltag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-bl").offset().top - 110
+                },
+                'slow');
+        });
+
+        //go to DL
+        jQuery(".dltag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-dl").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to BB
+        jQuery(".bbtag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-bb").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to EH
+        jQuery(".ehtag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-eh").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to LX
+        jQuery(".lxtag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-lx").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to MV
+        jQuery(".mvtag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-mv").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to CC
+        jQuery(".cctag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-cc").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to RS
+        jQuery(".rstag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-rugs").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to PL
+        jQuery(".pltag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-pc").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to CH
+        jQuery(".chtag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-ch").offset().top - 90
+                },
+                'slow');
+        });
+
+        //go to HOOT
+        jQuery(".caffelattetag").click(function () {
+            jQuery('html,body').animate({
+                    scrollTop: jQuery(".p-brand-cl").offset().top - 90
+                },
+                'slow');
+        });
+
+    });
+
+
+    var swiperbl = new Swiper('.swiper-container.blslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.dlslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.bbslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.ehslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.lxslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.mvslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.ccslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.rrslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.plslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.chslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swiperdl = new Swiper('.swiper-container.mosslide', {
+        effect: 'slide',
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+    });
+
+    var swipertop = new Swiper('.swiper-container.slidecontract', {
+        slidesPerView: 6,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            }
+        },
+        navigation: {
+            nextEl: '.swiper-button-next.swiper-button-black',
+            prevEl: '.swiper-button-prev.swiper-button-black',
+        },
+    });
+
+    jQuery(window).scroll(function () {
+        var scrollDistance = jQuery(window).scrollTop() + 150;
+        jQuery('.page-section').each(function (i) {
+            if (jQuery(this).position().top <= scrollDistance) {
+                jQuery('.newmenu ul li a').removeClass('active');
+                jQuery('.newmenu ul li a').eq(i).addClass('active');
+            }
+        });
+    }).scroll();
+</script>
+
+
+<!--===============================================================================================-->
+<script src="{% static 'subscribe_form_2/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'subscribe_form_2/vendor/bootstrap/js/popper.min.js' %}"></script>
+<script src="{% static 'subscribe_form_2/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'subscribe_form_2/vendor/select2/select2.min.js' %}"></script>
+<script>
+	$(".selection-2").select2({
+		minimumResultsForSearch: 20,
+		dropdownParent: $('#dropDownSelect1')
+	});
+	</script>
+<!--===============================================================================================-->
+<script src="{% static 'subscribe_form_2/vendor/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'subscribe_form_2/vendor/daterangepicker/daterangepicker.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'subscribe_form_2/vendor/countdowntime/countdowntime.min.js' %}"></script>
+<!--===============================================================================================-->
+<!-- <script src="{% static 'subscribe_form_2/js/main.min.js' %}"></script> -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script>
+    $('#form1 input[type=text]').on('change invalid', function() {
+    var textfield = $(this).get(0);
+    
+    // 'setCustomValidity not only sets the message, but also marks
+    // the field as invalid. In order to see whether the field really is
+    // invalid, we have to remove the message first
+    textfield.setCustomValidity('');
+    
+    if (!textfield.validity.valid) {
+      textfield.setCustomValidity('Bitte füllen Sie dieses Feld aus!');  
+    }
+});
+
+</script>
+
+</html>
